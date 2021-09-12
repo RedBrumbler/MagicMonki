@@ -24,7 +24,6 @@
 #include "gorilla-utils/shared/GorillaUtils.hpp"
 #include "gorilla-utils/shared/Callbacks/MatchMakingCallbacks.hpp"
 #include "gorilla-utils/shared/Utils/Player.hpp"
-#include "custom-types/shared/register.hpp"
 #include "config.hpp"
 #include "main.hpp"
 #include "MagicMonkiWatchView.hpp"
@@ -47,16 +46,12 @@ Logger& getLogger() {
 
 bool inRoom = false;
 bool TriggerLock = false;
-int CtrlChoice = 0;
 GameObject* pointer;
-
-void UpdateValues() {
-    CtrlChoice = config.ctrl;
-}
+Transform* rightHandT;
 
 void Teleport() {
     bool trigger = false;
-    if (CtrlChoice == false) {
+    if (config.ctrl == 0) {
     trigger = OVRInput::Get(OVRInput::Button::PrimaryHandTrigger, OVRInput::Controller::RTouch);
     } else {
     trigger = OVRInput::Get(OVRInput::Button::PrimaryHandTrigger, OVRInput::Controller::LTouch);
@@ -70,8 +65,8 @@ void Teleport() {
                 Transform* playerTransform = playerInstance->get_transform();
                 Rigidbody* playerRigidBody = playerInstance->playerRigidBody;
                 playerRigidBody->set_isKinematic(true);
-                playerTransform->set_position(pointerPos+Vector3::get_down().get_normalized() * -1.0f);
-                playerInstance->lastPosition = pointerPos+Vector3::get_down().get_normalized() * -1.0f;
+                playerTransform->set_position(pointerPos+Vector3::get_down().get_normalized() * -0.5f);
+                playerInstance->lastPosition = pointerPos+Vector3::get_down().get_normalized() * -0.5f;
                 Array<Vector3>* velocityHistory = reinterpret_cast<Array<Vector3>*>(il2cpp_functions::array_new(classof(Vector3), playerInstance->velocityHistorySize));
                 playerInstance->velocityHistory = velocityHistory;
                 SphereCollider* headCollider = playerInstance->headCollider;
@@ -103,9 +98,9 @@ MAKE_HOOK_MATCH(GorillaTagManager_Update, &GlobalNamespace::GorillaTagManager::U
     if(playerGameObject == nullptr) return;
     auto* player = playerGameObject->GetComponent<GorillaLocomotion::Player*>();
     //UnityEngine::Transform* transform = playerGameObject->get_transform();
-    Transform* rightHandT = player->rightHandTransform;
-    if (CtrlChoice == true) {
-    Transform* rightHandT = player->leftHandTransform;
+    rightHandT = player->rightHandTransform;
+    if (config.ctrl == 1) {
+    rightHandT = player->leftHandTransform;
     }
     Physics::Raycast(rightHandT->get_position()+ Vector3::get_down().get_normalized() * 0.1f, rightHandT->get_up()*-0.1f, hitInfo, 300.0f, layermask);
     float rayDistance = hitInfo.get_distance();
@@ -127,7 +122,6 @@ MAKE_HOOK_MATCH(GorillaTagManager_Update, &GlobalNamespace::GorillaTagManager::U
 }
 MAKE_HOOK_MATCH(Player_Awake, &GorillaLocomotion::Player::Awake, void, GorillaLocomotion::Player* self) {
     Player_Awake(self);
-    UpdateValues();
     GorillaUtils::MatchMakingCallbacks::onJoinedRoomEvent() += {[&]() {
         Il2CppObject* currentRoom = CRASH_UNLESS(il2cpp_utils::RunMethod("Photon.Pun", "PhotonNetwork", "get_CurrentRoom"));
 

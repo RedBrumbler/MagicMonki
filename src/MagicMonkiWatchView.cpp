@@ -61,6 +61,8 @@ namespace MagicMonki
         text += "<size=60><color=#555555> Disabled</color></size>";
         }
         text += "<size=60>\n</size>";
+        text += settingSelector->currentSelectionIndex == 1 ? "<size=60><color=#FF5115>></color></size>" : "<size=60> </size>";
+        text += "<size=60> Controller: </size>";
         switch (ctrlSelector->currentSelectionIndex)
         {
             case 0:
@@ -73,6 +75,7 @@ namespace MagicMonki
                 break;
         }
         text += "<size=60>\n\n</size>";
+        text += "<size=60> Made by <color=#d827d0>bay30</color></size>";
 
         if (config.enabled && !inRoom)
         {
