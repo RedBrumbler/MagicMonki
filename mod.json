@@ -1,0 +1,32 @@
+
+{
+    "_QPVersion": "0.1.1",
+    "name": "Magic Monki",
+    "id": "magicmonki",
+    "author": "bay",
+    "version": "0.1.0",
+    "packageId": "com.AnotherAxiom.GorillaTag",
+    "packageVersion": "1.0.11",
+    "description": "Teleport to wherever you point.",
+    "coverImage": "cover.png",
+    "type": "Gameplay",
+    "dependencies": [
+        {
+            "id": "monkecodegen",
+            "version": ">=0.8.0",
+            "downloadIfMissing": "https://github.com/RedBrumbler/MonkeCodegen/releases/download/v0.8.0/MonkeCodegen.qmod"
+        },
+        {
+            "id": "MonkeComputer",
+            "version": ">=1.6.1",
+            "downloadIfMissing": "https://github.com/RedBrumbler/MonkeComputer/releases/download/v1.6.1/MonkeComputer.qmod"
+        }
+    ],
+    "modFiles": [
+        "libmagicmonki.so"
+    ],
+    "libraryFiles": [
+    ],
+    "fileCopies": [
+    ]
+}

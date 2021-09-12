@@ -1,0 +1,131 @@
+{
+  "config": {
+    "sharedDir": "shared",
+    "dependenciesDir": "extern",
+    "info": {
+      "name": "Magic Monki",
+      "id": "magicmonki",
+      "version": "0.1.0",
+      "url": null,
+      "additionalData": {}
+    },
+    "dependencies": [
+      {
+        "id": "beatsaber-hook",
+        "versionRange": "*",
+        "additionalData": {
+          "extraFiles": [
+            "src/inline-hook"
+          ]
+        }
+      }
+    ],
+    "additionalData": {}
+  },
+  "restoredDependencies": [
+    {
+      "dependency": {
+        "id": "beatsaber-hook",
+        "versionRange": "*",
+        "additionalData": {
+          "extraFiles": [
+            "src/inline-hook"
+          ]
+        }
+      },
+      "version": "2.3.0"
+    },
+    {
+      "dependency": {
+        "id": "modloader",
+        "versionRange": "^1.2.0",
+        "additionalData": {}
+      },
+      "version": "1.2.3"
+    },
+    {
+      "dependency": {
+        "id": "libil2cpp",
+        "versionRange": ">=0.1.2<0.3.0",
+        "additionalData": {}
+      },
+      "version": "0.2.2"
+    },
+    {
+      "dependency": {
+        "id": "custom-types",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "0.12.7"
+    },
+    {
+      "dependency": {
+        "id": "monkecodegen",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "0.8.0"
+    },
+    {
+      "dependency": {
+        "id": "beatsaber-hook",
+        "versionRange": "^2.0.0",
+        "additionalData": {}
+      },
+      "version": "2.2.5"
+    },
+    {
+      "dependency": {
+        "id": "libil2cpp",
+        "versionRange": ">=0.1.2<0.3.0",
+        "additionalData": {}
+      },
+      "version": "0.2.1"
+    },
+    {
+      "dependency": {
+        "id": "monkecomputer",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "1.6.1"
+    },
+    {
+      "dependency": {
+        "id": "beatsaber-hook",
+        "versionRange": "^2.0.0",
+        "additionalData": {
+          "extraFiles": [
+            "src/inline-hook"
+          ]
+        }
+      },
+      "version": "2.2.4"
+    },
+    {
+      "dependency": {
+        "id": "quest-cosmetic-loader",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "0.2.2"
+    },
+    {
+      "dependency": {
+        "id": "zip",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "1.7.4"
+    },
+    {
+      "dependency": {
+        "id": "gorilla-utils",
+        "versionRange": "*",
+        "additionalData": {}
+      },
+      "version": "0.2.3"
+    }
+  ]
+}
