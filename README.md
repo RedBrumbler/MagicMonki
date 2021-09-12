@@ -1,6 +1,6 @@
-# #{name}
+Magic Monki
 
-#{description}
+Grants your monki the ability to teleport! just point and pull the back trigger! and whoosh your suddenly over there!
 
 ## Credits
 
